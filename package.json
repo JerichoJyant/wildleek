@@ -1,0 +1,23 @@
+{
+  "name": "wildleek",
+  "version": "0.0.1",
+  "description": "A simple package that checks a given password against a list of common passwords, without any network requests.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devnamedjosh/wildleek.git"
+  },
+  "keywords": [
+    "password",
+    "security"
+  ],
+  "author": "Joshua Patton",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/devnamedjosh/wildleek/issues"
+  },
+  "homepage": "https://github.com/devnamedjosh/wildleek#readme"
+}
