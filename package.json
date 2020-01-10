@@ -12,7 +12,8 @@
   },
   "keywords": [
     "password",
-    "security"
+    "security",
+    "password-strength"
   ],
   "author": "Joshua Patton",
   "license": "MIT",
