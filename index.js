@@ -1,26 +1,32 @@
+const binary_search = require('binary-search');
 const fs = require('fs');
 const readline = require('readline');
-const binary_search = require('binary-search');
 
-let passwordsList;
-export async function loadPasswords() {
-    const rl = readline.createInterface({
-        input: fs.createReadStream('./passwords/10-million-password-list-top-10000_ALPHABETIZED.txt'),
-        crlfDelay: Infinity
+let passwordList = [];
+
+function loadPasswords() {
+    return new Promise((resolve, reject) => {
+        const rl = readline.createInterface({
+            input: fs.createReadStream('./passwords/10-million-password-list-top-10000_ALPHABETIZED.txt'),
+            crlfDelay: Infinity
+        });
+
+        rl.on('line', (line) => {
+            passwordList.push(line);
+        });
+
+        rl.on('close', () => {
+            resolve();
+        });
     });
-
-    rl.on('line', (line) => {
-        passwordsList.push(line);
-    });
-
-    await once(rl, 'close');
 }
 
-async function passwordIsCommon(password) {
-    if(!passwordsList) {
+async function passwordInTheWild(password) {
+    if (passwordList.length === 0) {
         await loadPasswords();
     }
-    return !!binary_search(passwordsList, password, (a, b) => a.localeCompare(b));
+    const searchResult = binary_search(passwordList, password, (a, b) => a.localeCompare(b));
+    return searchResult >= 0; // Negative values mean the item was not found in the array
 }
 
-export default passwordIsCommon;
+module.exports = passwordInTheWild;
