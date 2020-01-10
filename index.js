@@ -6,7 +6,7 @@ const readline = require('readline');
 let passwordList = [];
 
 function loadPasswords() {
-    const passwordsFilePath = path.join(__dirname, './passwords/10-million-password-list-top-10000_ALPHABETIZED.txt');
+    const passwordsFilePath = path.join(__dirname, 'passwords', '10-million-password-list-top-10000_ALPHABETIZED.txt');
     return new Promise((resolve, reject) => {
         const rl = readline.createInterface({
             input: fs.createReadStream(passwordsFilePath),
