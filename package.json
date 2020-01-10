@@ -1,6 +1,6 @@
 {
   "name": "wildleek",
-  "version": "1.0.0-alpha",
+  "version": "1.0.0-beta",
   "description": "A simple package that checks a given password against a list of common passwords, without any network requests.",
   "main": "index.js",
   "scripts": {

@@ -1,13 +1,15 @@
 const binary_search = require('binary-search');
 const fs = require('fs');
+const path = require('path');
 const readline = require('readline');
 
 let passwordList = [];
 
 function loadPasswords() {
+    const passwordsFilePath = path.join(__dirname, './passwords/10-million-password-list-top-10000_ALPHABETIZED.txt');
     return new Promise((resolve, reject) => {
         const rl = readline.createInterface({
-            input: fs.createReadStream('./passwords/10-million-password-list-top-10000_ALPHABETIZED.txt'),
+            input: fs.createReadStream(passwordsFilePath),
             crlfDelay: Infinity
         });
 
