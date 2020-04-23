@@ -4,7 +4,8 @@ const path = require('path');
 const readline = require('readline');
 
 let passwordList = [];
-
+let passwordListLoaded = false;
+let passwordLI
 function loadPasswords() {
     const passwordsFilePath = path.join(__dirname, 'passwords', '10-million-password-list-top-10000_ALPHABETIZED.txt');
     return new Promise((resolve, reject) => {
@@ -18,17 +19,20 @@ function loadPasswords() {
         });
 
         rl.on('close', () => {
+            passwordListLoaded = true;
             resolve();
         });
     });
 }
 
 async function passwordInTheWild(password) {
-    if (passwordList.length === 0) {
+    if(!passwordListLoaded) {
         await loadPasswords();
     }
     const searchResult = binary_search(passwordList, password, (a, b) => a.localeCompare(b));
     return searchResult >= 0; // Negative values mean the item was not found in the array
 }
+
+passwordInTheWild.eagerLoadPasswords = loadPasswords;
 
 module.exports = passwordInTheWild;
