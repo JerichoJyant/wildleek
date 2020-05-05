@@ -28,13 +28,13 @@ function loadPasswords() {
                 });
 
                 rl.on('close', () => {
-                    // File over
+                    // End of file, passwords are loaded, resolve promise
                     resolve();
                 });
             });
     }
     // Returns the same object no matter when this function is called
-    // It's returning from loadingPromise from module scope,
+    // loadPasswords() is returning loadingPromise from module scope,
     // but loadingPromise gets its value from this function.
     return loadingPromise;
 }
