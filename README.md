@@ -29,6 +29,9 @@ passwordInTheWild("password123").then(wild => {
 The `passwordInTheWild(password)` function returns a promise that resolves to `true` if the password
 is on the top list and `false` if it is not.
 
+**Eager loading**: The password list can be loaded before it is needed by calling
+`passwordInTheWild.eagerLoadPasswords()`
+
 # Implementation
 `passwordInTheWild(password)` loads an alphabetized list of the 10,000 most common passwords into an array 
 when the function is first called. It then performs a binary search to check if the given password is in the array.
@@ -42,7 +45,9 @@ loading the file into memory. After it's loaded checking a password is quick.
 This package is intended for server-side password strength checks. 
 This package will not make your security invincible. An attacker might be able to deduce that
 your software uses this package, and avoid using the passwords in the list when trying to
-brute force their way into your application. The best way to view this package is as an
+brute force their way into your application.
+
+The best way to view this package is as an
 encouragement to make your users be creative with their passwords.
 
 I am not a security professional and recommend that all mission critical software be vetted by a
