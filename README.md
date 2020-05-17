@@ -56,10 +56,11 @@ encouragement to make your users be creative with their passwords.
 I am not a security professional and recommend that all mission critical software be vetted by a
 competent one before entering production.
 
+*Full disclaimer in LICENSE file*
+
 ## Credits
 The current password list is 
-the [Top 10,000 Passwords](https://github.com/danielmiessler/SecLists/blob/master/Passwords/Common-Credentials/10-million-password-list-top-10000.txt) (MIT LICENSE).
-according to [Daniel Miessler's SecLists](https://github.com/danielmiessler/SecLists).
+the [Top 10,000 Passwords](https://github.com/danielmiessler/SecLists/blob/master/Passwords/Common-Credentials/10-million-password-list-top-10000.txt) (MIT LICENSE) according to [Daniel Miessler's SecLists](https://github.com/danielmiessler/SecLists).
 See relevant license file in /passwords subdirectory. 
 It has been alphabetized so it can be binary searched, and a newline has been added so that a blank
 password is marked wild.
